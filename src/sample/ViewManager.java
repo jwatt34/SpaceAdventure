@@ -21,12 +21,8 @@ public class ViewManager {
     private static int height = 768;
     private final static int menuButtonX = 100;
     private final static int menuButtonY = 350;
-    private SpaceRunnerSubScene creditsSubScene;
-    private SpaceRunnerSubScene helpSubScene;
-    private SpaceRunnerSubScene scoresSubScene;
     private SpaceRunnerSubScene shipChooserScene;
     private SpaceRunnerSubScene exitSubScene;
-    private SpaceRunnerSubScene visibleScene;
     List<SpaceRunnerButton> menuButtons;
     List<ShipSelector> shipSelectorList;
     private Ship chosenShip;
@@ -44,10 +40,7 @@ public class ViewManager {
     }
 
     private void createSubScene(){
-        creditsSubScene = new SpaceRunnerSubScene();
-        helpSubScene = new SpaceRunnerSubScene();
         exitSubScene = new SpaceRunnerSubScene();
-        scoresSubScene = new SpaceRunnerSubScene();
         anchorPane.getChildren().add(exitSubScene);
         createShipChooserScene();
     }
@@ -108,16 +101,6 @@ public class ViewManager {
             }
         });
         return startButton;
-    }
-
-    private void showSubScene(SpaceRunnerSubScene subScene){
-
-        if (visibleScene != null) {
-            visibleScene.moveSubScene();
-        }
-        subScene.moveSubScene();
-        visibleScene = subScene;
-
     }
 
     public Stage getStage(){
